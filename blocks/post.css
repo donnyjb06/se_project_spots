@@ -1,0 +1,44 @@
+.post {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.post__image {
+  object-fit: cover;
+  border-radius: 8px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.post__content {
+  display: inline-grid;
+  max-width: 100%;
+  grid-template-columns: 1fr auto;
+}
+
+.post__caption {
+  font-size: 20px;
+  margin: 0;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  line-height: 1.2;
+}
+
+.post__like-button {
+  opacity: 0.7;
+  transition: opacity 0.3s ease-in;
+  cursor: pointer;
+}
+.post__like-button:hover {
+  opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .post__caption {
+    line-height: 1;
+  }
+}

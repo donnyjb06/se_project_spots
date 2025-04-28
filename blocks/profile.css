@@ -1,0 +1,130 @@
+.profile {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #21212166;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  line-height: 1;
+}
+
+.profile__content {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.profile__avatar {
+  border-radius: 8px;
+}
+
+.profile__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 12px;
+  align-items: flex-start;
+  align-self: stretch;
+  max-width: 320px;
+}
+
+.profile__name {
+  margin: 0;
+  font-size: 32px;
+  line-height: 1;
+  color: #212121;
+  display: -webkit-box;
+  overflow: hidden;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.profile__bio {
+  margin: 0;
+  color: #212121b3;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.profile__edit-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #212121;
+  background-color: transparent;
+  opacity: 0.7;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in;
+  margin-top: auto;
+  padding: 0;
+  line-height: 1;
+}
+
+.profile__edit-button:hover {
+  opacity: 1;
+}
+
+.profile__post-button {
+  background-color: #212121;
+  color: #fcf5e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 18px 32px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease-in;
+}
+
+.profile__post-button:hover {
+  opacity: 0.7;
+}
+
+@media screen and (max-width: 768px) {
+  .profile {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile__avatar {
+    width: 80px;
+  }
+
+  .profile__content {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .profile__info {
+    align-items: center;
+    gap: 0;
+  }
+
+  .profile__name {
+    font-size: 20px;
+    margin-bottom: 6px;
+  }
+
+  .profile__bio {
+    margin-bottom: 36px;
+  }
+
+  .profile__edit-button {
+    margin-bottom: 20px;
+  }
+
+  .profile__post-button {
+    align-self: stretch;
+  }
+}

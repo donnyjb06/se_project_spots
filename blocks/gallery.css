@@ -1,0 +1,21 @@
+.gallery {
+  padding-block: 20px 36px;
+  border-bottom: 1px solid #21212166;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 20px;
+  row-gap: 36px;
+}
+
+@media screen and (max-width: 1024px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .gallery {
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+  }
+}
