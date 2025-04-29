@@ -3,10 +3,10 @@
   align-items: center;
   justify-content: center;
   padding-block: 60px;
+}
 
-  .footer__copyright {
-    color: #212121b2;
-    line-height: 1;
-    margin: 0;
-  }
+.footer__copyright {
+  color: #212121b2;
+  line-height: 1;
+  margin: 0;
 }

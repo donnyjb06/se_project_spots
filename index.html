@@ -4,8 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Spots</title>
-    <link rel="stylesheet" href="./vendor/normalize.css" />
-    <link rel="stylesheet" href="./vendor/fonts.css" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="./pages/index.css" />
   </head>
   <body>
@@ -15,14 +14,17 @@
       </header>
 
       <main class="main">
-        <section class="profile">
+        <div class="profile">
           <div class="profile__content">
-            <img src="./images/avatar.jpg" alt="" class="profile__avatar" />
+            <img
+              src="./images/avatar.jpg"
+              alt="profile picture"
+              class="profile__avatar" />
 
             <div class="profile__info">
               <h1 class="profile__name">Bessie Coleman</h1>
               <p class="profile__bio">Civil Worker</p>
-              <button class="profile__edit-button">
+              <button type="button" class="profile__edit-button">
                 <img
                   src="./images/edit-icon.svg"
                   class="profile__edit-icon"
@@ -32,55 +34,61 @@
             </div>
           </div>
 
-          <button class="profile__post-button">
+          <button type="button" class="profile__post-button">
             <img
               src="./images/plus-icon.svg"
               class="profile__plus-icon"
               alt="Plus icon for add new post button" />
             New Post
           </button>
-        </section>
+        </div>
         <div class="gallery">
-          <div class="post">
+          <article class="post">
             <img
               src="./images/1-photo-by-moritz-feldmann-from-pexels.jpg"
               alt="View from a dark cozy room window showing snowy alpine buildings and mountains"
               class="post__image" />
             <div class="post__content">
               <h2 class="post__caption">Val Thorens</h2>
-              <img
-                src="./images/like-icon.svg"
-                alt="Like icon"
-                class="post__like-button" />
+              <button type="button" class="post__like-button">
+                <img
+                  src="./images/like-icon.svg"
+                  alt="Like icon"
+                  class="post__like-icon" />
+              </button>
             </div>
-          </div>
-          <div class="post">
+          </article>
+          <article class="post">
             <img
               src="./images/2-photo-by-ceiline-from-pexels.jpg"
               alt="Charming Parisian street corner with a flower-decorated restaurant facade and empty outdoor tables"
               class="post__image" />
             <div class="post__content">
               <h2 class="post__caption">Restaurant terrace</h2>
-              <img
-                src="./images/like-icon.svg"
-                alt="Like icon"
-                class="post__like-button" />
+              <button type="button" class="post__like-button">
+                <img
+                  src="./images/like-icon.svg"
+                  alt="Like icon"
+                  class="post__like-icon" />
+              </button>
             </div>
-          </div>
-          <div class="post">
+          </article>
+          <article class="post">
             <img
               src="./images/3-photo-by-tubanur-dogan-from-pexels.jpg"
               alt="Busy outdoor café with people socializing around round tables with wooden chairs"
               class="post__image" />
             <div class="post__content">
               <h2 class="post__caption">An outdoor cafe</h2>
-              <img
-                src="./images/like-icon.svg"
-                alt="Like icon"
-                class="post__like-button" />
+              <button type="button" class="post__like-button">
+                <img
+                  src="./images/like-icon.svg"
+                  alt="Like icon"
+                  class="post__like-icon" />
+              </button>
             </div>
-          </div>
-          <div class="post">
+          </article>
+          <article class="post">
             <img
               src="./images/4-photo-by-maurice-laschet-from-pexels.jpg"
               alt="Long suspension bridge stretching across a dense forest with autumn-colored trees"
@@ -89,38 +97,44 @@
               <h2 class="post__caption">
                 A very long bridge over the a unruly forest
               </h2>
-              <img
-                src="./images/like-icon.svg"
-                alt="Like icon"
-                class="post__like-button" />
+              <button type="button" class="post__like-button">
+                <img
+                  src="./images/like-icon.svg"
+                  alt="Like icon"
+                  class="post__like-icon" />
+              </button>
             </div>
-          </div>
-          <div class="post">
+          </article>
+          <article class="post">
             <img
               src="./images/5-photo-by-van-anh-nguyen-from-pexels.jpg"
               alt="Covered pedestrian bridge with large windows and a single person walking toward the exit"
               class="post__image" />
             <div class="post__content">
               <h2 class="post__caption">Tunnel with morning light</h2>
-              <img
-                src="./images/like-icon.svg"
-                alt="Like icon"
-                class="post__like-button" />
+              <button type="button" class="post__like-button">
+                <img
+                  src="./images/like-icon.svg"
+                  alt="Like icon"
+                  class="post__like-icon" />
+              </button>
             </div>
-          </div>
-          <div class="post">
+          </article>
+          <article class="post">
             <img
               src="./images/6-photo-by-moritz-feldmann-from-pexels.jpg"
               alt="Lonely wooden cabin surrounded by snowy fields and frosted evergreen trees in misty weather"
               class="post__image" />
             <div class="post__content">
               <h2 class="post__caption">Mountain house</h2>
-              <img
-                src="./images/like-icon.svg"
-                alt="Like icon"
-                class="post__like-button" />
+              <button type="button" class="post__like-button">
+                <img
+                  src="./images/like-icon.svg"
+                  alt="Like icon"
+                  class="post__like-icon" />
+              </button>
             </div>
-          </div>
+          </article>
         </div>
       </main>
 

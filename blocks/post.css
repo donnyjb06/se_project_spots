@@ -26,12 +26,18 @@
   white-space: nowrap;
   overflow: hidden;
   line-height: 1.2;
+  color: #212121;
 }
 
 .post__like-button {
-  opacity: 0.7;
+  /* Figma design needs to be fixed there
+  is no opacity in the properties when the like
+  button is selected */
+  opacity: 0.4;
   transition: opacity 0.3s ease-in;
   cursor: pointer;
+  border: none;
+  background-color: transparent;
 }
 .post__like-button:hover {
   opacity: 1;
@@ -40,5 +46,6 @@
 @media screen and (max-width: 768px) {
   .post__caption {
     line-height: 1;
+    font-size: 16px;
   }
 }
