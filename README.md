@@ -16,4 +16,5 @@ Finally, after the gallery is a simple footer.
 
 ### Preview & Project Overview Video
 
-Click here to [preview website]() \Click here to watch the [project overview]()
+Click here to [preview website]()  
+Click here to watch the [project overview]()
