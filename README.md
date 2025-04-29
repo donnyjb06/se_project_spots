@@ -16,5 +16,6 @@ Finally, after the gallery is a simple footer.
 
 ### Preview & Project Overview Video
 
-Click here to [preview website]()  
-Click here to watch the [project overview]()
+Click here to [preview website](https://donnyjb06.github.io/se_project_spots/)  
+Click here to watch the
+[project overview](https://drive.google.com/file/d/11Xl6hgB6NaCovkGmBJeKzuAJBiYgZfzs/view?usp=drive_link)
