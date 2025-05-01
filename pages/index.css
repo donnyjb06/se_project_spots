@@ -7,3 +7,7 @@
 @import url('../blocks/gallery.css');
 @import url('../blocks/post.css');
 @import url('../blocks/footer.css');
+
+body {
+  background-color: #fcf5e5;
+}
