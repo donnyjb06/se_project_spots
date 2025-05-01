@@ -1,5 +1,7 @@
 .main {
   padding-inline: 80px;
+  max-width: 1440px;
+  min-width: 320px;
 }
 
 @media screen and (max-width: 768px) {
