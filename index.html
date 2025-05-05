@@ -34,7 +34,7 @@
             </div>
           </div>
 
-          <button type="button" class="profile__post-button">
+          <button type="button" class="profile__post-button button">
             <img
               src="./images/plus-icon.svg"
               class="profile__plus-icon"
@@ -141,6 +141,68 @@
       <footer class="footer">
         <p class="footer__copyright">2025 &copy; Spots</p>
       </footer>
+
+      <div class="modal modal_is-opened">
+        <div class="modal__container">
+          <h2 class="modal__heading">Edit profile</h2>
+
+          <button class="modal__exit-button">
+            <img src="./images/exit-icon.svg" class="modal__exit-icon" />
+          </button>
+
+          <form class="form">
+            <label class="form__label">
+              Name
+              <input
+                type="text"
+                class="form__input"
+                placeholder="Type your name"
+                name="name" />
+            </label>
+
+            <label class="form__label">
+              Description
+              <input
+                type="text"
+                class="form__input"
+                name="description"
+                placeholder="Describe yourself" />
+            </label>
+            <button class="form__submit-btn button">Save</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="modal modal_is-opened">
+        <div class="modal__container">
+          <h2 class="modal__heading">New post</h2>
+
+          <button class="modal__exit-button">
+            <img src="./images/exit-icon.svg" class="modal__exit-icon" />
+          </button>
+
+          <form class="form">
+            <label class="form__label">
+              Image link
+              <input
+                type="text"
+                class="form__input"
+                placeholder="Paste a link to the picture"
+                name="link" />
+            </label>
+
+            <label class="form__label">
+              Caption
+              <input
+                type="text"
+                class="form__input"
+                name="caption"
+                placeholder="Type your caption" />
+            </label>
+            <button class="form__submit-btn button">Save</button>
+          </form>
+        </div>
+      </div>
     </div>
   </body>
 </html>
