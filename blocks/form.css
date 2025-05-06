@@ -30,3 +30,14 @@
 .form__input:focus {
   outline: none;
 }
+
+.form__submit-btn {
+  min-width: min(156px, 100%);
+  align-self: flex-start;
+}
+
+@media screen and (max-width: 768px) {
+  .form__submit-btn {
+    align-self: stretch;
+  }
+}
