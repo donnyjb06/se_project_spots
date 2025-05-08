@@ -16,31 +16,35 @@ const newPostForm = newPostModal.querySelector('form');
 const linkInput = document.querySelector('[name="link"]');
 const captionInput = document.querySelector('[name="caption"]');
 
+const openModal = (modal) => {
+  modal.classList.add('modal_is-opened');
+};
+
+const closeModal = (modal) => {
+  modal.classList.remove('modal_is-opened');
+};
+
 editProfileBtn.addEventListener('click', () => {
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
-  editProfileModal.classList.add('modal_is-opened');
+  openModal(editProfileModal);
 });
 
-editProfileCloseBtn.addEventListener('click', () => {
-  editProfileModal.classList.remove('modal_is-opened');
-});
+editProfileCloseBtn.addEventListener('click', () =>
+  closeModal(editProfileModal),
+);
 
 editProfileForm.addEventListener('submit', (event) => {
   event.preventDefault();
 
   profileName.textContent = nameInput.value;
   profileJob.textContent = jobInput.value;
-  editProfileModal.classList.remove('modal_is-opened');
+  closeModal(editProfileModal);
 });
 
-newPostBtn.addEventListener('click', () => {
-  newPostModal.classList.add('modal_is-opened');
-});
+newPostBtn.addEventListener('click', () => openModal(newPostModal));
 
-newPostCloseBtn.addEventListener('click', () => {
-  newPostModal.classList.remove('modal_is-opened');
-});
+newPostCloseBtn.addEventListener('click', () => closeModal(newPostModal));
 
 newPostForm.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -48,7 +52,7 @@ newPostForm.addEventListener('submit', (event) => {
   console.log(linkInput.value);
   console.log(captionInput.value);
 
-  newPostModal.classList.remove('modal_is-opened');
+  closeModal(newPostModal);
 });
 
 const initialCards = [
