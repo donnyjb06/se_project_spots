@@ -29,6 +29,17 @@ const getCardElement = (data) => {
   const cardImage = cardElement.querySelector('.post__image');
   cardImage.setAttribute('src', data.link);
 
+  const likeBtn = cardElement.querySelector('.post__like-button');
+  const likeIcon = cardElement.querySelector('.post__like-icon');
+  likeBtn.addEventListener('click', () => {
+    const src = likeIcon.getAttribute('src').includes('active')
+      ? './images/like-icon.svg'
+      : './images/like-icon-active.svg';
+    likeIcon.setAttribute('src', src);
+
+    likeBtn.classList.toggle('post__like-button_status_active');
+  });
+
   return cardElement;
 };
 

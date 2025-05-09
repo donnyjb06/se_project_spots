@@ -43,6 +43,14 @@
   opacity: 1;
 }
 
+.post__like-button_status_active {
+  opacity: 1;
+}
+
+.post__like-button_status_active:hover {
+  opacity: 0.4;
+}
+
 @media screen and (max-width: 768px) {
   .post__caption {
     line-height: 1;
