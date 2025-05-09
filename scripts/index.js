@@ -40,6 +40,11 @@ const getCardElement = (data) => {
     likeBtn.classList.toggle('post__like-button_status_active');
   });
 
+  const deleteBtn = cardElement.querySelector('.post__delete-button');
+  deleteBtn.addEventListener('click', () => {
+    cardElement.remove();
+  });
+
   return cardElement;
 };
 

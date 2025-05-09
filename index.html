@@ -46,6 +46,11 @@
           <template id="card-template">
             <article class="post">
               <img src="" alt="" class="post__image" />
+              <button type="button" class="post__delete-button">
+                <img
+                  src="./images/delete-icon.svg"
+                  alt="trash can icon for delete button" />
+              </button>
               <div class="post__content">
                 <h2 class="post__caption"></h2>
                 <button type="button" class="post__like-button">
@@ -68,9 +73,9 @@
         <div class="modal__container">
           <h2 class="modal__heading">Edit profile</h2>
 
-          <button class="modal__exit-button">
+          <button type="button" class="modal__exit-button">
             <img
-              src="./images/exit-icon.svg"
+              src="./images/exit-icon-dark.svg"
               class="modal__exit-icon"
               alt="exit icon" />
           </button>
@@ -104,9 +109,9 @@
         <div class="modal__container">
           <h2 class="modal__heading">New post</h2>
 
-          <button class="modal__exit-button">
+          <button type="button" class="modal__exit-button">
             <img
-              src="./images/exit-icon.svg"
+              src="./images/exit-icon-dark.svg"
               class="modal__exit-icon"
               alt="exit icon" />
           </button>
