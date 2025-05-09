@@ -16,6 +16,22 @@ const newPostForm = newPostModal.querySelector('form');
 const linkInput = document.querySelector('[name="link"]');
 const captionInput = document.querySelector('[name="caption"]');
 
+const gallery = document.querySelector('.gallery');
+
+const cardTemplate = document.querySelector('#card-template').content;
+
+const getCardElement = (data) => {
+  const cardElement = cardTemplate.querySelector('.post').cloneNode(true);
+
+  const cardTitle = cardElement.querySelector('.post__caption');
+  cardTitle.textContent = data.name;
+
+  const cardImage = cardElement.querySelector('.post__image');
+  cardImage.setAttribute('src', data.link);
+
+  return cardElement;
+};
+
 const openModal = (modal) => {
   modal.classList.add('modal_is-opened');
 };
@@ -49,8 +65,12 @@ newPostCloseBtn.addEventListener('click', () => closeModal(newPostModal));
 newPostForm.addEventListener('submit', (event) => {
   event.preventDefault();
 
-  console.log(linkInput.value);
-  console.log(captionInput.value);
+  const cardObj = {
+    name: captionInput.value,
+    link: linkInput.value,
+  };
+  const cardElement = getCardElement(cardObj);
+  gallery.prepend(cardElement);
 
   closeModal(newPostModal);
 });
@@ -82,4 +102,7 @@ const initialCards = [
   },
 ];
 
-initialCards.forEach((card) => console.log(card.name));
+initialCards.forEach((card) => {
+  const cardElement = getCardElement(card);
+  gallery.append(cardElement);
+});
