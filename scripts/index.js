@@ -20,6 +20,21 @@ const gallery = document.querySelector('.gallery');
 
 const cardTemplate = document.querySelector('#card-template').content;
 
+const postModal = document.querySelector('#post-modal');
+const postModalCloseBtn = postModal.querySelector('.modal__close-button');
+const postModalImage = postModal.querySelector('.modal__image');
+const postModalCaption = postModal.querySelector('.modal__caption');
+
+const openModal = (modal) => {
+  modal.classList.add('modal_is-opened');
+  modal.removeAttribute('aria-hidden');
+};
+
+const closeModal = (modal) => {
+  modal.classList.remove('modal_is-opened');
+  modal.setAttribute('aria-hidden', 'true');
+};
+
 const getCardElement = (data) => {
   const cardElement = cardTemplate.querySelector('.post').cloneNode(true);
 
@@ -28,6 +43,7 @@ const getCardElement = (data) => {
 
   const cardImage = cardElement.querySelector('.post__image');
   cardImage.setAttribute('src', data.link);
+  cardImage.setAttribute('alt', data.name);
 
   const likeBtn = cardElement.querySelector('.post__like-button');
   const likeIcon = cardElement.querySelector('.post__like-icon');
@@ -45,16 +61,19 @@ const getCardElement = (data) => {
     cardElement.remove();
   });
 
+  cardImage.addEventListener('click', () => {
+    postModalImage.setAttribute('src', data.link);
+    postModalImage.setAttribute('alt', data.name);
+    postModalCaption.textContent = data.name;
+    openModal(postModal);
+  });
+
   return cardElement;
 };
 
-const openModal = (modal) => {
-  modal.classList.add('modal_is-opened');
-};
-
-const closeModal = (modal) => {
-  modal.classList.remove('modal_is-opened');
-};
+postModalCloseBtn.addEventListener('click', () => {
+  closeModal(postModal);
+});
 
 editProfileBtn.addEventListener('click', () => {
   nameInput.value = profileName.textContent;
@@ -97,8 +116,8 @@ const initialCards = [
     link: 'https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg',
   },
   {
-    name: 'Restaurant terrace',
-    link: 'https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg',
+    name: 'Jellyfish in the ocean',
+    link: 'https://images.unsplash.com/photo-1745613184657-3c8dcd5f079a?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   },
   {
     name: 'An outdoor cafe',

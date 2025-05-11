@@ -69,7 +69,29 @@
         <p class="footer__copyright">2025 &copy; Spots</p>
       </footer>
 
-      <div class="modal" id="edit-profile-modal">
+      <div
+        class="modal"
+        id="post-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-hidden="true">
+        <div class="modal__wrapper">
+          <img src="" alt="" class="modal__image" />
+          <button class="modal__close-button" type="button">
+            <img
+              src="./images/exit-icon-light.svg"
+              alt="x icon for exit button" />
+          </button>
+          <p class="modal__caption"></p>
+        </div>
+      </div>
+
+      <div
+        class="modal"
+        id="edit-profile-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-hidden="true">
         <div class="modal__container">
           <h2 class="modal__heading">Edit profile</h2>
 
@@ -105,7 +127,12 @@
         </div>
       </div>
 
-      <div class="modal" id="new-post-modal">
+      <div
+        class="modal"
+        id="new-post-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-hidden="true">
         <div class="modal__container">
           <h2 class="modal__heading">New post</h2>
 

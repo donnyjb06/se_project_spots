@@ -11,6 +11,7 @@
   border-radius: 8px;
   width: 100%;
   aspect-ratio: 1 / 1;
+  cursor: pointer;
 }
 
 .post__delete-button {
@@ -51,9 +52,6 @@
 }
 
 .post__like-button {
-  /* Figma design needs to be fixed there
-  is no opacity in the properties when the like
-  button is selected */
   opacity: 0.4;
   transition: opacity 0.3s ease-in;
   cursor: pointer;

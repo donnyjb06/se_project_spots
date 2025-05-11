@@ -1,5 +1,8 @@
 .modal {
+  box-sizing: border-box;
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -9,6 +12,7 @@
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.5s ease-in, visibility 0.5s ease-in;
+  padding-inline: 16px;
 }
 
 .modal_is-opened {
@@ -64,5 +68,62 @@
 @media screen and (max-width: 768px) {
   .modal__container {
     gap: 32px;
+  }
+}
+
+.modal__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: white;
+  position: relative;
+  gap: 8px;
+}
+
+.modal__image {
+  max-width: 80vw;
+  max-height: 80vh;
+  border-radius: 8px;
+  width: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.modal__close-button {
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  top: 0;
+  right: -52.5px;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  transition: 0.3s ease;
+}
+
+.modal__close-button:hover {
+  opacity: 0.4;
+}
+
+.modal__caption {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2;
+  padding: 4px 8px;
+  background-color: rgba(33, 33, 33, 1);
+  border-radius: 8px;
+  margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .modal__close-button {
+    top: -48px;
+    right: 0;
+  }
+
+  .modal__image {
+    max-width: none;
   }
 }
