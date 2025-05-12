@@ -12,7 +12,7 @@
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.5s ease-in, visibility 0.5s ease-in;
-  padding-inline: 16px;
+  padding-inline: 10px;
 }
 
 .modal_is-opened {
@@ -28,11 +28,11 @@
   I included screenshots in the image folder. */
   padding-inline: clamp(12px, 2.5vw, 50px);
   padding-block: clamp(22px, 2.5vw, 32px) clamp(12px, 2.5vw, 32px);
-  margin-inline: 10px;
   border-radius: 8px;
   width: min(100%, 730px);
   display: flex;
   flex-direction: column;
+  margin: 0;
   align-items: stretch;
   justify-content: center;
   gap: 36px;
@@ -69,6 +69,10 @@
   .modal__container {
     gap: 32px;
   }
+}
+
+.modal_type_preview {
+  padding-inline: 16px;
 }
 
 .modal__wrapper {
@@ -108,7 +112,7 @@
 }
 
 .modal__caption {
-  font-size: 20px;
+  font-size: clamp(16px, 2.5vw, 20px);
   font-weight: 500;
   line-height: 1.2;
   padding: 4px 8px;

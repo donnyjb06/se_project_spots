@@ -107,6 +107,8 @@ newPostForm.addEventListener('submit', (event) => {
   const cardElement = getCardElement(cardObj);
   gallery.prepend(cardElement);
 
+  newPostForm.reset();
+
   closeModal(newPostModal);
 });
 
