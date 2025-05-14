@@ -20,7 +20,7 @@
   font-size: clamp(16px, 2.5vw, 20px);
   line-height: 1;
   border: 1px solid rgba(33, 33, 33, 0.4);
-  transition: border 0.3s ease-in;
+  transition: 0.3s ease-in;
 }
 
 .form__input:hover {
@@ -31,9 +31,31 @@
   outline: none;
 }
 
+.form__input_type_error .form__input:hover,
+.form__input_type_error {
+  border-color: rgba(255, 0, 0, 0.6);
+}
+
+.form__error {
+  visibility: hidden;
+  color: rgba(255, 0, 0, 0.7);
+  line-height: 1.1;
+  font-weight: 500;
+}
+
+.form__error_visibility_shown {
+  visibility: visible;
+}
+
 .form__submit-btn {
   min-width: min(156px, 100%);
   align-self: flex-start;
+}
+
+.form__submit-btn:disabled {
+  /* the opacity isnt on figma again, so I just put 0.4 */
+  background-color: rgba(33, 33, 33, 0.4);
+  cursor: default;
 }
 
 @media screen and (max-width: 768px) {

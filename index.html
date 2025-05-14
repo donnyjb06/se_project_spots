@@ -110,7 +110,10 @@
                 class="form__input"
                 placeholder="Type your name"
                 name="name"
-                required />
+                required
+                minlength="2"
+                maxlength="40" />
+              <span class="form__error form__error_type_name"></span>
             </label>
 
             <label class="form__label">
@@ -120,7 +123,10 @@
                 class="form__input"
                 name="description"
                 placeholder="Describe yourself"
-                required />
+                required
+                minlength="2"
+                maxlength="200" />
+              <span class="form__error form__error_type_description"></span>
             </label>
             <button class="form__submit-btn button">Save</button>
           </form>
@@ -147,11 +153,12 @@
             <label class="form__label">
               Image link
               <input
-                type="text"
+                type="url"
                 class="form__input"
                 placeholder="Paste a link to the picture"
                 name="link"
                 required />
+              <span class="form__error form__error_type_link"></span>
             </label>
 
             <label class="form__label">
@@ -161,7 +168,10 @@
                 class="form__input"
                 name="caption"
                 placeholder="Type your caption"
-                required />
+                required
+                minlength="2"
+                maxlength="30" />
+              <span class="form__error form__error_type_caption"></span>
             </label>
             <button class="form__submit-btn button">Save</button>
           </form>
@@ -169,5 +179,6 @@
       </div>
     </div>
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validation.js"></script>
   </body>
 </html>

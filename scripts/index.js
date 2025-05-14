@@ -25,9 +25,41 @@ const postModalCloseBtn = postModal.querySelector('.modal__close-button');
 const postModalImage = postModal.querySelector('.modal__image');
 const postModalCaption = postModal.querySelector('.modal__caption');
 
+const getClickHandler = (modal) => {
+  const clickHandler = (event) => {
+    if (event.target === modal) {
+      closeModal(modal);
+      modal.removeEventListener('click', clickHandler);
+    }
+  };
+
+  return clickHandler;
+};
+
+const getEscapeHandler = (modal) => {
+  const escapeHandler = (event) => {
+    if (event.key === 'Escape') {
+      closeModal(modal);
+      document.removeEventListener('keydown', escapeHandler);
+    }
+  };
+
+  return escapeHandler;
+};
+
+const setModalEventListeners = (modal) => {
+  const escapeHandler = getEscapeHandler(modal);
+  document.addEventListener('keydown', escapeHandler);
+
+  const clickHandler = getClickHandler(modal);
+  modal.addEventListener('click', clickHandler);
+};
+
 const openModal = (modal) => {
   modal.classList.add('modal_is-opened');
   modal.removeAttribute('aria-hidden');
+
+  setModalEventListeners(modal);
 };
 
 const closeModal = (modal) => {
@@ -98,8 +130,6 @@ newPostBtn.addEventListener('click', () => openModal(newPostModal));
 newPostCloseBtn.addEventListener('click', () => closeModal(newPostModal));
 
 newPostForm.addEventListener('submit', (event) => {
-  event.preventDefault();
-
   const cardObj = {
     name: captionInput.value,
     link: linkInput.value,
