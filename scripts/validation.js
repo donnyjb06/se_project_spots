@@ -18,6 +18,12 @@ const toggleSubmitButton = (inputList, buttonElement) => {
   }
 };
 
+const resetInputErrors = (form, inputList, config) => {
+  inputList.forEach((input) => {
+    hideInputError(form, input, config);
+  });
+};
+
 const hideInputError = (form, input, config) => {
   const inputName = input.getAttribute('name');
   const errorElement = form.querySelector(`.form__error_type_${inputName}`);

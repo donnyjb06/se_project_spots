@@ -46,7 +46,7 @@
   align-self: flex-start;
 }
 
-.modal__exit-button {
+.modal__close-btn_form {
   position: absolute;
   top: clamp(22px, 2.5vw, 32px);
   right: clamp(12px, 2.5vw, 32px);
@@ -61,7 +61,7 @@
   cursor: pointer;
 }
 
-.modal__exit-button:hover {
+.modal__close-btn_form:hover {
   opacity: 1;
 }
 
@@ -93,7 +93,7 @@
   display: block;
 }
 
-.modal__close-button {
+.modal__close-btn_preview {
   position: absolute;
   background-color: transparent;
   border: none;
@@ -107,7 +107,7 @@
   transition: 0.3s ease;
 }
 
-.modal__close-button:hover {
+.modal__close-btn_preview:hover {
   opacity: 0.4;
 }
 
@@ -122,7 +122,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .modal__close-button {
+  .modal__close-btn_preview {
     top: -48px;
     right: 0;
   }

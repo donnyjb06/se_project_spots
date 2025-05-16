@@ -77,7 +77,9 @@
         aria-hidden="true">
         <div class="modal__wrapper">
           <img src="#" alt="" class="modal__image" />
-          <button class="modal__close-button" type="button">
+          <button
+            class="modal__close-btn modal__close-btn_preview"
+            type="button">
             <img
               src="./images/exit-icon-light.svg"
               alt="x icon for exit button" />
@@ -95,14 +97,14 @@
         <div class="modal__container">
           <h2 class="modal__heading">Edit profile</h2>
 
-          <button type="button" class="modal__exit-button">
+          <button type="button" class="modal__close-btn modal__close-btn_form">
             <img
               src="./images/exit-icon-dark.svg"
               class="modal__exit-icon"
               alt="exit icon" />
           </button>
 
-          <form class="form">
+          <form class="form" id="edit-profile-form">
             <label class="form__label">
               Name
               <input
@@ -142,14 +144,14 @@
         <div class="modal__container">
           <h2 class="modal__heading">New post</h2>
 
-          <button type="button" class="modal__exit-button">
+          <button type="button" class="modal__close-btn modal__close-btn_form">
             <img
               src="./images/exit-icon-dark.svg"
               class="modal__exit-icon"
               alt="exit icon" />
           </button>
 
-          <form class="form">
+          <form class="form" id="new-post-form">
             <label class="form__label">
               Image link
               <input
@@ -178,7 +180,8 @@
         </div>
       </div>
     </div>
-    <script src="./scripts/index.js"></script>
-    <script src="./scripts/validation.js"></script>
+    <script defer src="./scripts/cards.js"></script>
+    <script defer src="./scripts/validation.js"></script>
+    <script defer src="./scripts/index.js"></script>
   </body>
 </html>
