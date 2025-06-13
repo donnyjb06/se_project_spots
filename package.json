@@ -7,7 +7,7 @@
     "dev": "webpack serve --mode development"
   },
   "keywords": [],
-  "author": "",
+  "author": "TripleTen",
   "license": "ISC",
   "description": "Spots is a purely front-end static site. It's has a profile section which  \r includes a name, bio, an add post button, and a edit profile button. Following\r the  \r profile section is a responsive gallery containing user posts.  \r Each post contains an image, a caption, and a like button.  \r Finally, after the gallery is a simple footer.",
   "devDependencies": {
