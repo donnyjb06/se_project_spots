@@ -1,3 +1,6 @@
+import { enableValidation, settings } from './validation.js';
+import { initialCards } from './cards.js';
+
 const editProfileModal = document.querySelector('#edit-profile-modal');
 const editProfileBtn = document.querySelector('.profile__edit-button');
 
@@ -125,6 +128,8 @@ const handleSubmit = (event) => {
 };
 
 newPostForm.addEventListener('submit', handleSubmit);
+
+enableValidation(settings);
 
 initialCards.forEach((card) => {
   const cardElement = getCardElement(card);
