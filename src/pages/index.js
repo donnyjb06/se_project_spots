@@ -1,5 +1,7 @@
-import { enableValidation, settings } from './validation.js';
-import { initialCards } from './cards.js';
+import './index.css';
+
+import { enableValidation, settings } from '../scripts/validation.js';
+import { initialCards } from '../scripts/cards.js';
 
 const editProfileModal = document.querySelector('#edit-profile-modal');
 const editProfileBtn = document.querySelector('.profile__edit-button');
