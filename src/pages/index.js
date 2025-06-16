@@ -9,7 +9,6 @@ import {
   settings,
   resetInputErrors,
 } from '../scripts/validation.js';
-import { initialCards } from '../scripts/cards.js';
 
 import likeButtonIcon from '../images/like-icon.svg';
 import activeLikeButtonIcon from '../images/like-icon-active.svg';
