@@ -138,6 +138,7 @@ const handleConfirmDelete = () => {
     .then((res) => console.log(res))
     .catch((error) => console.error(error));
   selectedCard.remove();
+  closeModal(deletePostModal);
 };
 
 // ========================
@@ -156,15 +157,26 @@ const getCardElement = (data) => {
   cardImage.setAttribute('alt', data.name);
 
   const likeBtn = cardElement.querySelector('.post__like-button');
+  if (data.isLiked) {
+    likeBtn.classList.add('post__like-button_status_active');
+  }
+
   const likeIcon = cardElement.querySelector('.post__like-icon');
   likeIcon.src = data.isLiked ? activeLikeButtonIcon : likeButtonIcon;
 
   likeBtn.addEventListener('click', () => {
-    const src = likeIcon.getAttribute('src').includes('active')
-      ? likeButtonIcon
-      : activeLikeButtonIcon;
-    likeIcon.setAttribute('src', src);
-    likeBtn.classList.toggle('post__like-button_status_active');
+    const isLiked = likeBtn.classList.contains(
+      'post__like-button_status_active',
+    );
+
+    api
+      .toggleLike(data._id, isLiked)
+      .then((res) => {
+        const src = res.isLiked ? activeLikeButtonIcon : likeButtonIcon;
+        likeIcon.setAttribute('src', src);
+        likeBtn.classList.toggle('post__like-button_status_active');
+      })
+      .catch((error) => console.log(error));
   });
 
   const deleteBtn = cardElement.querySelector('.post__delete-button');
