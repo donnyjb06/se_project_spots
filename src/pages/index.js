@@ -14,7 +14,8 @@ import likeButtonIcon from '../images/like-icon.svg';
 import activeLikeButtonIcon from '../images/like-icon-active.svg';
 import plusIcon from '../images/plus-icon.svg';
 import logo from '../images/Logo.svg';
-import editIcon from '../images/edit-icon.svg';
+import darkEditButton from '../images/edit-icon-dark.svg';
+import lightEditButton from '../images/edit-icon-light.svg';
 import deleteIcon from '../images/delete-icon.svg';
 import darkExitButton from '../images/exit-icon-dark.svg';
 import lightExitButton from '../images/exit-icon-light.svg';
@@ -31,6 +32,7 @@ const deletePostModal = document.querySelector('#delete-post-modal');
 
 // Buttons
 const editProfileBtn = document.querySelector('.profile__edit-button');
+const editAvatarBtn = document.querySelector('.profile__edit-avatar-button');
 const newPostBtn = document.querySelector('.profile__post-button');
 const deleteModalDeleteBtn = deletePostModal.querySelector(
   '.modal__button_type_delete',
@@ -86,7 +88,8 @@ const api = new Api({
 
 document.querySelector('.header__logo').src = logo;
 newPostBtn.querySelector('.profile__plus-icon').src = plusIcon;
-editProfileBtn.querySelector('.profile__edit-icon').src = editIcon;
+editProfileBtn.querySelector('.profile__edit-icon').src = darkEditButton;
+editAvatarBtn.querySelector('.profile__edit-avatar-icon').src = lightEditButton;
 
 document.querySelectorAll('.modal__exit-icon').forEach((icon) => {
   icon.src = icon.classList.contains('modal__exit-icon_type_dark')
