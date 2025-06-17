@@ -19,6 +19,7 @@
   overflow: hidden;
   position: relative;
   aspect-ratio: 1 / 1;
+  max-width: 190px;
 }
 
 .profile__avatar-wrapper:hover .profile__edit-avatar-button {
@@ -137,6 +138,7 @@
     bottom: 4.66px;
     align-items: center;
     justify-content: center;
+    opacity: 1;
   }
 
   .profile__edit-avatar-button::after {

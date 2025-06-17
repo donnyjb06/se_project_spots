@@ -61,4 +61,14 @@ export class Api {
       headers: this._headers,
     }).then(this._handleResponse);
   }
+
+  updateProfilePicture(link) {
+    return fetch(`${this._baseUrl}/users/me/avatar`, {
+      method: 'PATCH',
+      headers: this._headers,
+      body: JSON.stringify({
+        avatar: link,
+      }),
+    }).then(this._handleResponse);
+  }
 }

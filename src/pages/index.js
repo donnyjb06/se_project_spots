@@ -29,6 +29,7 @@ const editProfileModal = document.querySelector('#edit-profile-modal');
 const newPostModal = document.querySelector('#new-post-modal');
 const postModal = document.querySelector('#post-modal');
 const deletePostModal = document.querySelector('#delete-post-modal');
+const editAvatarModal = document.querySelector('#edit-avatar-modal');
 
 // Profile fields
 const profileName = document.querySelector('.profile__name');
@@ -37,11 +38,13 @@ const profileAvatar = document.querySelector('.profile__avatar');
 
 // Forms & inputs
 const editProfileForm = document.forms['edit-profile-form'];
+const editAvatarForm = document.forms['edit-avatar-form'];
+const avatarLinkInput = editAvatarForm.querySelector('.form__input');
 const nameInput = document.querySelector('[name="name"]');
 const jobInput = document.querySelector('[name="description"]');
 
 const newPostForm = document.forms['new-post-form'];
-const linkInput = document.querySelector('[name="link"]');
+const linkInput = newPostModal.querySelector('[name="link"]');
 const captionInput = document.querySelector('[name="caption"]');
 
 // Cards
@@ -60,6 +63,7 @@ const deleteModalCancelButton = deletePostModal.querySelector(
 );
 const editProfileSubmitBtn = editProfileForm.querySelector('.form__submit-btn');
 const newPostSubmitBtn = newPostForm.querySelector('.form__submit-btn');
+const editAvatarSubmitBtn = editAvatarForm.querySelector('.form__submit-btn');
 
 // Post Modal content
 const postModalImage = postModal.querySelector('.modal__image');
@@ -138,8 +142,7 @@ const handleDeleteCard = (cardElement, data) => {
 };
 
 const handleConfirmDelete = () => {
-  deleteModalDeleteBtn.textContent = 'Deleting';
-  deleteModalDeleteBtn.disabled = true;
+  setLoadingState(deleteModalDeleteBtn, 'Deleting...');
   api
     .deletePost(selectedCardId)
     .then((res) => console.log(res))
@@ -150,6 +153,11 @@ const handleConfirmDelete = () => {
     });
   selectedCard.remove();
   closeModal(deletePostModal);
+};
+
+const setLoadingState = (element, message) => {
+  element.textContent = message;
+  element.disabled = true;
 };
 
 // ========================
@@ -187,7 +195,7 @@ const getCardElement = (data) => {
         likeIcon.setAttribute('src', src);
         likeBtn.classList.toggle('post__like-button_status_active');
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.error(error));
   });
 
   const deleteBtn = cardElement.querySelector('.post__delete-button');
@@ -221,8 +229,7 @@ editProfileBtn.addEventListener('click', () => {
 // Edit profile submit
 editProfileForm.addEventListener('submit', (event) => {
   event.preventDefault();
-  editProfileSubmitBtn.textContent = 'Saving';
-  editProfileSubmitBtn.disabled = true;
+  setLoadingState(editProfileSubmitBtn, 'Saving...');
 
   const values = {
     name: nameInput.value,
@@ -256,8 +263,7 @@ Array.from(document.querySelectorAll('.modal__close-btn')).forEach((button) => {
 // Submit new post
 const handleSubmit = (event) => {
   event.preventDefault();
-  newPostSubmitBtn.textContent = 'Saving';
-  newPostSubmitBtn.disabled = true;
+  setLoadingState(newPostSubmitBtn, 'Saving...');
 
   const cardObj = {
     name: captionInput.value,
@@ -288,6 +294,30 @@ deleteModalDeleteBtn.addEventListener('click', () => {
 
 deleteModalCancelButton.addEventListener('click', () => {
   closeModal(deletePostModal);
+});
+
+editAvatarForm.addEventListener('submit', (evt) => {
+  evt.preventDefault();
+
+  setLoadingState(editAvatarSubmitBtn, 'Saving...');
+
+  api
+    .updateProfilePicture(avatarLinkInput.value)
+    .then((res) => {
+      profileAvatar.src = res.avatar;
+    })
+    .catch((error) => console.error(error))
+    .finally(() => {
+      editAvatarSubmitBtn.textContent = 'Save';
+      editAvatarSubmitBtn.disabled = false;
+    });
+
+  editAvatarForm.reset();
+  closeModal(editAvatarModal);
+});
+
+editAvatarBtn.addEventListener('click', () => {
+  openModal(editAvatarModal);
 });
 
 // ========================

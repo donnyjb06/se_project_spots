@@ -71,8 +71,7 @@
         class="modal modal_type_preview"
         id="post-modal"
         role="dialog"
-        aria-modal="true"
-        aria-hidden="true">
+        aria-modal="true">
         <div class="modal__wrapper">
           <img src="#" alt="" class="modal__image" />
           <button
@@ -117,8 +116,7 @@
         class="modal"
         id="edit-profile-modal"
         role="dialog"
-        aria-modal="true"
-        aria-hidden="true">
+        aria-modal="true">
         <div class="modal__container">
           <h2 class="modal__heading">Edit profile</h2>
 
@@ -152,6 +150,31 @@
                 maxlength="200" />
               <span class="form__error form__error_type_description"></span>
             </label>
+            <button class="form__submit-btn button">Save</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="modal" id="edit-avatar-modal" role="dialog" aria-modal="true">
+        <div class="modal__container">
+          <h2 class="modal__heading">Edit profile avatar</h2>
+
+          <button type="button" class="modal__close-btn modal__close-btn_form">
+            <img class="modal__exit-icon" alt="exit icon" />
+          </button>
+
+          <form class="form" id="edit-avatar-form">
+            <label class="form__label">
+              Image link
+              <input
+                type="url"
+                class="form__input"
+                placeholder="Paste a link to an image"
+                name="link"
+                required />
+              <span class="form__error form__error_type_link"></span>
+            </label>
+
             <button class="form__submit-btn button">Save</button>
           </form>
         </div>
