@@ -4,71 +4,74 @@ export class Api {
     this._headers = options.headers;
   }
 
+  _request(url, options) {
+    return fetch(url, options).then(this._handleResponse);
+  }
+
   _handleResponse = (res) => {
     if (res.ok) return res.json();
     return Promise.reject(`Error: ${res.status}`);
   };
 
   getInitialCards() {
-    return fetch(`${this._baseUrl}/cards`, {
-      headers: this._headers,
-    }).then(this._handleResponse);
+    return this._request(`${this._baseUrl}/cards`, { headers: this._headers });
   }
 
   getCurrentUser() {
-    return fetch(`${this._baseUrl}/users/me`, {
+    return this._request(`${this._baseUrl}/users/me`, {
       headers: this._headers,
-    }).then(this._handleResponse);
+    });
   }
 
   renderInitialDetails() {
-    return Promise.all([this.getCurrentUser(), this.getInitialCards()])
-      .then(([userData, postsData]) => ({
-        userData,
-        postsData,
-      }))
-      .catch((error) => {
-        return Promise.reject(error);
-      });
+    return Promise.all([this.getCurrentUser(), this.getInitialCards()]).then(
+      ([userData, postsData]) => {
+        if (userData && (postsData !== undefined || postsData !== null)) {
+          return { userData, postsData };
+        }
+
+        return Promise.reject(`Error when processing json response`);
+      },
+    );
   }
 
   editUserInfo({ name, about }) {
-    return fetch(`${this._baseUrl}/users/me`, {
+    return this._request(`${this._baseUrl}/users/me`, {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({ name, about }),
-    }).then(this._handleResponse);
+    });
   }
 
   addNewPost({ name, link }) {
-    return fetch(`${this._baseUrl}/cards`, {
+    return this._request(`${this._baseUrl}/cards`, {
       method: 'POST',
       headers: this._headers,
       body: JSON.stringify({ name, link }),
-    }).then(this._handleResponse);
+    });
   }
 
   deletePost(id) {
-    return fetch(`${this._baseUrl}/cards/${id}`, {
+    return this._request(`${this._baseUrl}/cards/${id}`, {
       method: 'DELETE',
       headers: this._headers,
-    }).then(this._handleResponse);
+    });
   }
 
   toggleLike(id, isLiked) {
-    return fetch(`${this._baseUrl}/cards/${id}/likes`, {
+    return this._request(`${this._baseUrl}/cards/${id}/likes`, {
       method: isLiked ? 'DELETE' : 'PUT',
       headers: this._headers,
-    }).then(this._handleResponse);
+    });
   }
 
   updateProfilePicture(link) {
-    return fetch(`${this._baseUrl}/users/me/avatar`, {
+    return this._request(`${this._baseUrl}/users/me/avatar`, {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
         avatar: link,
       }),
-    }).then(this._handleResponse);
+    });
   }
 }

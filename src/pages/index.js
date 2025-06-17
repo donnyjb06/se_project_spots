@@ -145,14 +145,16 @@ const handleConfirmDelete = () => {
   setLoadingState(deleteModalDeleteBtn, 'Deleting...');
   api
     .deletePost(selectedCardId)
-    .then((res) => console.log(res))
+    .then((res) => {
+      console.log(res);
+      selectedCard.remove();
+      closeModal(deletePostModal);
+    })
     .catch((error) => console.error(error))
     .finally(() => {
       deleteModalDeleteBtn.textContent = 'Delete';
       deleteModalDeleteBtn.disabled = false;
     });
-  selectedCard.remove();
-  closeModal(deletePostModal);
 };
 
 const setLoadingState = (element, message) => {
@@ -241,14 +243,15 @@ editProfileForm.addEventListener('submit', (event) => {
     .then((res) => {
       profileName.textContent = res.name;
       profileJob.textContent = res.about;
+      closeModal(editProfileModal);
     })
-    .catch((error) => console.error(error))
+    .catch((error) => {
+      editProfileSubmitBtn.disabled = false;
+      console.error(error);
+    })
     .finally(() => {
       editProfileSubmitBtn.textContent = 'Save';
-      editProfileSubmitBtn.disabled = false;
     });
-
-  closeModal(editProfileModal);
 });
 
 // New post button
@@ -275,15 +278,16 @@ const handleSubmit = (event) => {
     .then((res) => {
       const cardElement = getCardElement(res);
       gallery.prepend(cardElement);
+      newPostForm.reset();
+      closeModal(newPostModal);
     })
-    .catch((error) => console.error(error))
+    .catch((error) => {
+      newPostSubmitBtn.disabled = false;
+      console.error(error);
+    })
     .finally(() => {
       newPostSubmitBtn.textContent = 'Save';
-      newPostSubmitBtn.disabled = false;
     });
-
-  newPostForm.reset();
-  closeModal(newPostModal);
 };
 
 newPostForm.addEventListener('submit', handleSubmit);
@@ -305,15 +309,16 @@ editAvatarForm.addEventListener('submit', (evt) => {
     .updateProfilePicture(avatarLinkInput.value)
     .then((res) => {
       profileAvatar.src = res.avatar;
+      editAvatarForm.reset();
+      closeModal(editAvatarModal);
     })
-    .catch((error) => console.error(error))
+    .catch((error) => {
+      editAvatarSubmitBtn.disabled = false;
+      console.error(error);
+    })
     .finally(() => {
       editAvatarSubmitBtn.textContent = 'Save';
-      editAvatarSubmitBtn.disabled = false;
     });
-
-  editAvatarForm.reset();
-  closeModal(editAvatarModal);
 });
 
 editAvatarBtn.addEventListener('click', () => {
