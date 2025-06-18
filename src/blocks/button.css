@@ -12,7 +12,6 @@
   border-radius: 8px;
   border: none;
   cursor: pointer;
-  transition: opacity 0.3s ease-in;
 }
 
 .button:hover:not(:disabled) {

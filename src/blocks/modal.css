@@ -13,6 +13,7 @@
   opacity: 0;
   transition: opacity 0.5s ease-in, visibility 0.5s ease-in;
   padding-inline: 10px;
+  z-index: 2;
 }
 
 .modal_is-opened {
@@ -38,12 +39,24 @@
   gap: 36px;
 }
 
+.modal__container_role_delete-post {
+  gap: 32px;
+  align-items: center;
+  padding: clamp(12px, 2.5vw, 32px) clamp(12px, 2.5vw, 20px);
+}
+
 .modal__heading {
   margin: 0;
   font-weight: 500;
   font-size: clamp(20px, 2.5vw, 32px);
   line-height: 1;
   align-self: flex-start;
+}
+
+.modal__heading_size_small {
+  font-size: clamp(20px, 2.5vw, 24px);
+  align-self: center;
+  text-align: center;
 }
 
 .modal__close-btn_form {
@@ -65,12 +78,6 @@
   opacity: 1;
 }
 
-@media screen and (max-width: 768px) {
-  .modal__container {
-    gap: 32px;
-  }
-}
-
 .modal_type_preview {
   padding-inline: 16px;
 }
@@ -82,6 +89,10 @@
   color: white;
   position: relative;
   gap: 8px;
+}
+
+.modal__wrapper_delete-post {
+  color: transparent;
 }
 
 .modal__image {
@@ -121,7 +132,60 @@
   margin: 0;
 }
 
+.modal__controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.modal__button {
+  width: 156px;
+  line-height: 1;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+  padding: 18px 32px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.modal__button:hover {
+  opacity: 1;
+}
+
+.modal__button_type_delete {
+  background-color: rgba(255, 101, 101, 1);
+  color: rgba(33, 33, 33, 1);
+  transition: background-color 0.3s ease;
+}
+
+.modal__button_type_delete:hover {
+  background-color: rgba(255, 51, 51, 1);
+}
+
+.modal__button_type_cancel {
+  background-color: transparent;
+  border: 1px solid rgba(33, 33, 33, 1);
+  color: rgba(33, 33, 33, 1);
+}
+
+.modal__button_type_cancel:hover {
+  background-color: rgba(33, 33, 33, 1);
+  color: white;
+}
+
 @media screen and (max-width: 768px) {
+  .modal__container {
+    gap: 32px;
+  }
+
+  .modal__container_role_delete-post {
+    gap: 20px;
+  }
+
   .modal__close-btn_preview {
     top: -48px;
     right: 0;
@@ -129,5 +193,16 @@
 
   .modal__image {
     max-width: none;
+  }
+
+  .modal__controls {
+    gap: 12px;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .modal__close-btn_delete {
+    top: -48px;
+    right: 0;
   }
 }
